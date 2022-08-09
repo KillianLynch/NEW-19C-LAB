@@ -17,58 +17,6 @@ Watch this video below to learn more about Oracle database breakthrough innovati
 
 This workshop lets you try out new features in Oracle Database 19c. All the labs are independent of each other, so you don't need to do them in any particular order. If needed, a lab starts with instructions on how to prepare your environment, and ends with instructions on how to restore your environment back to its original state.
 
-### General Database 19c New Features Labs
-
-The following labs are available:
-
-
-**Application Development:**
-- Case-Insensitive Database
-- JSON in the Database
-- Private Temporary Tables
-
-**Availability:**
-- Active Data Guard DML Redirection ** not on ADB
-- Online Table Move
-
-**Security:**
-- Schema Only Accounts
-
-**Analytics:**
-- Approximate Count Distinct
-- Approximate Query Processing
-- Analytic Views
-- Real-Time Materialized Views
-
-**Database Overall:**
-- Advanced Index Compression (TBD if adding to the list) 12.2 **its exa and exa/CC - does this mean ADB?
-- Tracking Index Usage
-- Easy Connect Plus
-- Automatic Indexing
-- Real-Time Statistics
-- Blockchain Tables
-- Immutable table
-
-**Performance:**
-- Database In-Memory Base Level **not ADB
-- In-Memory External Tables **not ADB
-- SQL Quarantine
-
-**SQL Features:**
-- Advanced
-  - SQL macros scalar (on 21 but backported to 19c...)
-  - SQL macros table(on 21 but backported to 19c...)
-  - polymorphic table functions 18c+
-- Partitioning
-  - approx **!**
-  - Table Creation for Partition Exchange 12.2+ **its exa and exa/CC - does this mean ADB?
-  - Hybrid Partitioned Tables 19c+ **its exa and exa/CC - does this mean ADB?
-- Improved existing features
-  - DISTINCT Option for LISTAGG Aggregate 19c+ / Enhancing LISTAGG Functionality 12.2+
-  - to_number (Expression Tracking) 12.2+ **its exa and exa/CC - does this mean ADB?
-  - Enhancing CAST Function With Error Handling 12.2+
-  - New SQL and PL/SQL Function VALIDATE_CONVERSION 12.2+
-
 
 ### Learn More
 
