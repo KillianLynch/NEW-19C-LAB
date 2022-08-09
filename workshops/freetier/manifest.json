@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Database 19c New Features",
+    "workshoptitle": "Explore new features in Oracle Database 19c",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -13,7 +13,7 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
        {
-        "title": "Lab 2: 19C Setup",
+        "title": "Lab: 19C Setup",
         "filename": "../../adb-provision/adb-provision.md"
     },
     {
