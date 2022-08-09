@@ -26,5 +26,5 @@ This workshop lets you try out new features in Oracle Database 19c. All the labs
 
 ## Acknowledgements
 * **Author** - Killian Lynch, Database Product Management
-* **Contributors** - Thanks to the following for helping guide my ideas: Dominic Giles, Jenny Tsai-Smith, Kay Malcolm, Jody Glover, Matthew McDaniel
+* **Contributors** - Many thanks to those who helped make this possible 
 * **Last Updated By/Date** - Killian Lynch July 2022
