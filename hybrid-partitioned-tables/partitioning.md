@@ -13,7 +13,7 @@ Partitioning also enables database designers and administrators to solve some di
 
 ### About Hybrid Partitioning
 
-The Hybrid Partition Tables feature extends Oracle Partitioning by enabling partitions to reside in both Oracle Database segments and in external files and sources. This feature significantly enhances the functionality of partitioning for Big Data SQL where large portions of a table can reside in external partitions.
+The Hybrid Partition Tables feature extends Oracle Partitioning by enabling partitions to reside in both Oracle Database segments and in external files and sources. This feature significantly enhances the functionality of partitioning for any situation where large portions of a table can reside in external partitions.
 
 Watch the video below to get an explanation of Hybrid Partitioning.
 
@@ -26,22 +26,19 @@ Partitions of hybrid partitioned tables can reside on both Oracle tablespaces an
    - ORACLE\_HDFS
    - ORACLE\_HIVE
 
-For external partitions of ORACLE\_LOADER and ORACLE\_DATAPUMP access driver type, you must grant the following privileges to the user:
-   - READ privileges on directories with data files
-   - WRITE privileges on directories with logging and bad files
-   - EXECUTE privileges on directories with pre-processor programs
+This lab is a high level overview of Hybrid partitioning. For an in depth Hybrid partitioning lab, see the 'Learn More" section at the bottom and follow the link.
+
 
 ### Prerequisites
 
 This lab assumes you have completed the following labs:
-* Lab: Login to Oracle Cloud
-* Lab: Generate SSH Key
-* Lab: Environment Setup
-* Lab: Sample Schema Setup
+* Lab: 19C Setup
 
 ## Task 1: Set up the environment
 
-Here we will create an empty Object Storage bucket as our external partition.
+To set the stage, our fictitious company Rockbuster only needs to keep the last 2 years worth of sales data internally. Today is the day they go through and exchange the 3 year old data to an external source. We will be exchanging our 2019 internal partition to an external table located in in Oracle's Object Storage.
+
+First we will create an empty Object Storage bucket as our external partition.
 
 1. Using the OCI Console Menu, go to **Storage > Object Storage & Archive Storage**.
 
@@ -59,7 +56,7 @@ Here we will create an empty Object Storage bucket as our external partition.
 
   ![Naming the Bucket](./images/name-bucket.png) 
 
-In order to use the Bucket we just created, we need to create the proper credentials.
+    In order to use the Bucket we just created, we need to create the proper credentials.
 5.  Click the user profile icon in the top right of the screen.
 
   ![Locate account](./images/locate-account.png) 
@@ -207,7 +204,6 @@ END;
 
 Now that we have data in an external location, in our case Object Storage, we are going to create a hybrid partitioned table called Sales\_by\_year. We will have one partition pointing to the data in our Object Storage bucket, and 3 internal partitions for years 2021, 2020, and 2019. 
 
-To set the stage, our fictitious company only needs to keep the last 2 years worth of sales data internally and today is the day where they go through and exchange the 3 year old data to an external source. We will be exchanging our 2019 internal partition to an external partition located in the same Object Storage bucket as our other Sales_old data.
 
 Hybrid Partitioned Tables support many partition level operations, including:
 -	Creating a single level RANGE and LIST partitioning methods
@@ -359,7 +355,8 @@ END;
     ````
 You may now proceed to the next lab. 
 
-
+## Learn More
+* [In Depth Hybrid Partitioning Lab](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=568&clear=RR,180&session=116161642012812)
 
 ## Acknowledgements
 * **Author** - Killian Lynch, Database Product Management

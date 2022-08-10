@@ -1,10 +1,10 @@
-# Working with JSON collections using the SODA (Simple Oracle Document Access) API
+# Working with JSON in the Oracle Database
 
 ## Introduction
 
-Oracle is a relational database, meaning it typically stores data in rows and column of tables and JSON can be stored as a column value. For this lab though we first focus on the Document Store API SODA (Simple Oracle Document Access) which allows to store JSON data in a so-called collection. A JSON collection stores JSON documents alongside some metadata like the time of creation or update. Collections offer operations like inserts, deletes, index creation or queries.
+he 19c generation of Oracle's converged database offers customers; best of breed support for all data types (e.g. relational, JSON, XML, spatial, graph, OLAP, etc.), and industry leading performance, scalability, availability and security for all their operational, analytical and other mixed workloads.A JSON collection stores JSON documents alongside some metadata like the time of creation or update. Collections offer operations like inserts, deletes, index creation or queries.
 
-In order to create a collection all you have to specify is the collection's name. Unlike a relational table you do not have to provide any schema information. So, lets create a collection for the products we want to sell in the store.
+In order to create a collection all you have to specify is the collection's name. Unlike a relational table you do not have to provide any schema information. For our JSON lab, we'll be working with a collection of products that our fictitious retro movie and book retail store "RockBuster" sells.
 
 Estimated Time: 15 minutes
 
@@ -36,15 +36,15 @@ In this lab, you will:
 
 	![Create Collection](./images/create-collection.png)
 
-4. Provide a name for your collection in the field **Collection Name - products** and click **Create**. MAKE SURE you check the **MongoDB Compatible** box. Note that the collection name is case-sensitive. You must enter products in all lower-case, don't use PRODUCTS or Products.
+4. Provide a name for the collection in the field, we'll call it  **products** and click **Create**. MAKE SURE you check the **MongoDB Compatible** box. Note that the collection name is case-sensitive. You must enter products in all lower-case, don't use PRODUCTS or Products.
 
 	![New collection: products](./images/new-products.png)
 
-5. A notification pops up that displays `products` collections is created.
+5. A notification pops up informing you the `products` collections is created.
 
 	![New collection notification](./images/popup.png)
 
-6. Click the refresh button to verify `products` collection is created.
+6. Click the refresh button to verify the `products` collection is created.
 
 	![Refresh button](./images/refreshed.png)
 
@@ -248,13 +248,13 @@ More generally, constraints can be used to check the data being entered for vari
 	```
 	![add constraint](./images/sql-query.png)
 
-	JSON_Exists is a SQL/JSON function that checks that a SQL/JSON path expression selects at least one value in the JSON data. The selected value(s) are not extracted – only their existence is checked. Here, *$?(@.title.type() == "string" && @.price.number() > 0)* i a standard, SQL/JSON path expressions. You'll learn more about SQJ/JSON functions later in this lab.
+	JSON_Exists is a SQL/JSON function that checks that a SQL/JSON path expression selects at least one value in the JSON data. The selected value(s) are not extracted – only their existence is checked. Here, *$?(@.title.type() == "string" && @.price.number() > 0)* is a standard, SQL/JSON path expressions. You'll learn more about SQJ/JSON functions later in this lab.
 
 3. Once the *products* table is altered, navigate back to JSON workshop. Click the navigation menu on the top left and select **JSON** under Development.
 
 	![JSON navigation](./images/nav2-json.png)
 
-4. Validate that the following documents cannot get inserted as fields are missing or of wrong type.
+4. Validate that the following documents cannot get inserted as fields are missing or of the wrong type.
 
 	Click New JSON Document icon, copy and paste the following query in the worksheet and click **Create**.
 
@@ -312,7 +312,7 @@ You may now proceed to the next lab.
 
     You see that the table 'PRODUCTS' has 5 columns: an 'ID' which is a unique identifier for the document (and in the case of MongoDB-compatible collections, is taken from the "_id" field in the JSON), a column 'DATA' which holds the JSON document, 2 metadata columns to keep track of creation and update timestamps and 'VERSION' which is typically a hash value for the document and allows to keep caches in sync (similar to an eTag). None of this is really important at this point as we will only use the DATA column in the following examples.
 
-    *Learn more -* [Use Oracle Database Actions with JSON Collections](https://docs.oracle.com/en/cloud/paas/autonomous-json-database/ajdug/use-oracle-database-actions-json-collections1.html) and [Use SQL With JSON Data](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/json-in-oracle-database.html#GUID-04377B36-654B-47C4-A480-535E00E46D1F)
+
 3. Because the JSON data is stored in a binary representation (for query and update efficiency) we need to convert it to a human-readable string using JSON_Serialize.
 
     Copy and paste this query in SQL Developer Web worksheet and run it. 
@@ -369,7 +369,7 @@ You may now proceed to the next lab.
     ```
     ![aggregation operation with AVG function and simple dot notation](./images/average-function.png " ")
 
-    *Learn more -* [Oracle SQL Function JSON_SERIALIZE](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/json-in-oracle-database.html#GUID-667D37FF-F5FB-465D-B8AE-DAE88F191B2F), and [Simple Dot-Notation Access to JSON Data](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/simple-dot-notation-access-to-json-data.html#GUID-7249417B-A337-4854-8040-192D5CEFD576)
+
 
 	All above examples extracted singleton values from the JSON data - values that only occurred once per document (like title or price). But JSON can have nested arrays - how can we access those?
 
@@ -425,6 +425,10 @@ You may now proceed to the next lab.
 ## Learn More
 
 * [Creating B-Tree Indexes for JSON_VALUE](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/indexes-for-json-data.html#GUID-FEE83855-780A-424B-9916-B899BFF2077B)
+* [Use Oracle Database Actions with JSON Collections](https://docs.oracle.com/en/cloud/paas/autonomous-json-database/ajdug/use-oracle-database-actions-json-collections1.html) 
+*[Use SQL With JSON Data](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/json-in-oracle-database.html#GUID-04377B36-654B-47C4-A480-535E00E46D1F)
+* [Oracle SQL Function JSON_SERIALIZE](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/json-in-oracle-database.html#GUID-667D37FF-F5FB-465D-B8AE-DAE88F191B2F)
+* [Simple Dot-Notation Access to JSON Data](https://docs.oracle.com/en/database/oracle/oracle-database/21/adjsn/simple-dot-notation-access-to-json-data.html#GUID-7249417B-A337-4854-8040-192D5CEFD576)
 
 ## Acknowledgements
 
