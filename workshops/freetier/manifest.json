@@ -28,6 +28,10 @@
         "title": "Lab: SQL Updates",
         "filename": "../../sql-macros/sql-macros.md"
 },
+{
+    "title": "Lab: Terminate ADB & Bucket",
+    "filename": "../../terminate-adb/sprint-terminate-adb.md"
+},
         {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",

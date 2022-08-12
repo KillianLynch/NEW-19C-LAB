@@ -17,21 +17,25 @@
             "filename": "../../create-oci-vm-db/create-oci-vm-db-vcn-livelabs.md"
         },
         {
-            "title": "Lab 2: 19C Setup",
+            "title": "Lab: 19C Setup",
             "filename": "../../adb-provision/adb-provision.md"
         },
         {
             "title": "Lab: JSON in the Database",
-            "filename": "../../json-collection/json-not-kl.md"
+            "filename": "../../json-collection/json-collection.md"
         },
         {
-            "title": "Lab: Private Temporary Tables",
-            "filename": "../../introduction/livelabs-template.md"
+            "title": "Lab: Partitioning",
+            "filename": "../../hybrid-partitioned-tables/partitioning.md"
         },
         {
-            "title": "Lab: Case-Insensitive Database",
-            "filename": "../../introduction/livelabs-template.md"
-	},
+            "title": "Lab: SQL Updates",
+            "filename": "../../sql-macros/sql-macros.md"
+    },
+    {
+        "title": "Lab: Terminate ADB & Bucket",
+        "filename": "../../terminate-adb/sprint-terminate-adb.md"
+    },
         {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",

@@ -36,7 +36,7 @@ This lab assumes you have completed the following labs:
 
 ## Task 1: Set up the environment
 
-To set the stage, our fictitious company Rockbuster only needs to keep the last 2 years worth of sales data internally. Today is the day they go through and exchange the 3 year old data to an external source. We will be exchanging our 2019 internal partition to an external table located in in Oracle's Object Storage.
+To set the stage, our fictitious company RockBuster only needs to keep the last 2 years worth of sales data internally. Today is the day they go through and exchange the 3 year old data to an external source. We will be exchanging our 2019 internal partition to an external table located in in Oracle's Object Storage.
 
 First we will create an empty Object Storage bucket as our external partition.
 
