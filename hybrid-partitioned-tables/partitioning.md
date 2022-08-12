@@ -161,12 +161,16 @@ First let's create some external files.  The external partitions will be stored 
     INSERT INTO SALES_OLD VALUES (1001, 111, '26-JUL-2010', 1, 01, 50, 50);
     </copy>
     ````
-3. Now we will export our data to object storage. In order to do this we need to **locate some information**. Our URI variable will be a our link to object storage and will look something like this https://objectstorage.**region**.oraclecloud.com/n/**namespace-string**/b/**bucket**/o/**yourFileName.dmp**. What we need to locate is the bold above. The region, our namespace, and our bucket name. Once we locate this information, lets save our https link on a text file or somewhere it can be easily accessed for the upcoming steps.
+3. Now we will export our data to object storage. In order to do this we need to **locate some information**. Our URI variable will be our link to object storage and will look something like this https://objectstorage.**region**.oraclecloud.com/n/**namespace-string**/b/**bucket**/o/yourFileName.dmp. What we need to locate is the bold above. The region, our namespace, and our bucket name. Once we locate this information, lets save our https link on a text file or somewhere it can be easily accessed for the upcoming steps.
 
-    You can find your region, bucket name, and namespace string all in one location by using the Oracle Cloud Console to locate your bucket. If you need a re-fresher on how to find object storage, use the task 1 above or from the OCI console got to -> Hamburger menu -> Storage -> Object Storage & Archive Storage.
+    You can find your region and bucket name by using the Oracle Cloud Console and locating your bucket. If you need a re-fresher on how to find object storage, use the task 1 above or from the OCI console got to -> Hamburger menu -> Storage -> Object Storage & Archive Storage.
     ![locating the region](./images/region.png " ")
 
+    To find our namespace string **click the user profile icon in the top right hand corner** of the screen and select the tenancy name. The Object storage namespace will be displayed. See picture below for reference.
+   ![locating the namepsace](./images/namespace.png " ")
+
     Now **you need to update your file uri list** to look something like the code snippet below. Notice we will call our external dump file 'sales_old.dmp'
+  
 
 
     ````
@@ -202,7 +206,7 @@ END;
 
 ## Task 4: Implement Hybrid Partition Tables
 
-Now that we have data in an external location, in our case Object Storage, we are going to create a hybrid partitioned table called Sales\_by\_year. We will have one partition pointing to the data in our Object Storage bucket, and 3 internal partitions for years 2021, 2020, and 2019. 
+Now that we have data in an external location, in our case Object Storage, we are going to create a hybrid partitioned table called Sales\_by\_year. We will have one partition pointing to the data in our Object Storage bucket, and 3 internal partitions for years 2019, 2020 and 2021.
 
 
 Hybrid Partitioned Tables support many partition level operations, including:
@@ -285,6 +289,18 @@ Hybrid Partitioned Tables support many partition level operations, including:
     ````
 
     Notice that our sales partition SALES_2019 is an internal partition. Because our company only keeps the last 2 years worth of data stored internally, we will be exchanging this partition with one in Object Storage.
+
+    However lets first try and add data to our Sales_old partition located on Object Storage. 
+     ````
+    <copy>
+       INSERT INTO SALES_OLD VALUES (1009, 999, '26-JUL-2009', 9, 09, 10, 70);
+    </copy>
+    ````
+
+    We see we get an **error**. This is because the partition on Object Storage is stored in **read-only mode**. This also means it is easier to maintain external partitions and the database doesn't have to worry about backups because you only ever need to backup the external partition once.
+    
+      ![Read Only](./images/read-only.png " ")
+
 
 4. Now we will export our sales_2019 partition data to object storage using DBMS\_CLOUD.EXPORT\_DATA functionality like we did at the beginning of this lab. **Make sure to update the URI with your link**. Leave your URI in single quotes. Like this 'yourURI'. **Lets call this file sales2019.dmp**
 
