@@ -230,7 +230,6 @@ You may now proceed to the next lab.
 - [SQL Macros on ADB](https://blogs.oracle.com/datawarehousing/sql-macros-have-arrived-in-autonomous-database)
 - [Configure SQL Tracing](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/application-tracing-configure.html#GUID-542ED992-FF58-498A-9C24-0F531AC981BE)
 
-## Acknowledgements
-* **Author** - Donna Keesling, Database UA Team
-* **Contributors** -  David Start, Kay Malcolm, Didi Han, Database Product Management
-* **Last Updated By/Date** -  Madhusudhan Rao, Apr 2022
+* **Author** - Killian Lynch, Database Product Management
+* **Contributors** - Many thanks to Dominic Giles who helped tremendously  
+* **Last Updated By/Date** - Killian Lynch July 2022
