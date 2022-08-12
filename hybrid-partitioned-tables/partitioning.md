@@ -193,7 +193,7 @@ END;
  
     >SELECT object\_name FROM DBMS\_CLOUD.LIST\_OBJECTS('OBJECT\_STORE\_CRED','https:/objectstorage.**us-phoenix-1**.oraclecloud.com/n/**mynamespace**/b/**ExternalPartition**/o/');
 
-    ![Display objects in storage](./images/object.png " ")
+    ![Display objects in storage](./images/objects.png " ")
 5. Last, lets drop the internal Sales\_old table we created above so it only exists as a external file in Object Storage.
 
     ````
@@ -251,7 +251,7 @@ Hybrid Partitioned Tables support many partition level operations, including:
     </copy>
     ````
 
-     ![Create Hybrid Table](./images/create-hyb-table.png " ")
+     ![Create Hybrid Table](./images/make-hybrid-table.png " ")
 
 2. Now we're going to add data into our partitions 2019, 2020 and 2021.
 
